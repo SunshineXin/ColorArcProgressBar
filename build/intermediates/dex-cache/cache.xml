@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/liyang/work/GitHub/ColorArcProgressBar/app/build/intermediates/exploded-aar/com.github.shinelw.colorarcprogressbar/library/1.0.3/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8f29ea84e60cad19abf1f5c335e5f59b46057c46">
+        <dex dex="/Users/liyang/work/GitHub/ColorArcProgressBar/app/build/intermediates/pre-dexed/debug/com.github.shinelw.colorarcprogressbar-library-1.0.3_5a1d63c733ab29176251f68231e91e8b39af1593.jar" />
+    </item>
+
+</items>
