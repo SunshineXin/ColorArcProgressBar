@@ -54,7 +54,7 @@ public class DemoActivity extends AppCompatActivity {
         button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                bar3.setCurrentValues(77);
+                bar3.setCurrentValues(100);
             }
         });
         button4.setOnClickListener(new View.OnClickListener() {
