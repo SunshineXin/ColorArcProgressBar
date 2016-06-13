@@ -2,11 +2,11 @@
 <items version="2" >
 
     <item
-        jar="/Users/liyang/work/GitHub/ColorArcProgressBar_demo/app/build/intermediates/exploded-aar/com.github.shinelw.colorarcprogressbar/library/1.0.3/jars/classes.jar"
+        jar="/Users/liyang/work/GitHub/ColorArcProgressBar/app/build/intermediates/exploded-aar/com.github.shinelw.colorarcprogressbar/library/1.0.3/jars/classes.jar"
         jumboMode="false"
         revision="23.0.2"
-        sha1="e5ef5a632a24243fb18eb4fdb258b78a7d96e22f">
-        <dex dex="/Users/liyang/work/GitHub/ColorArcProgressBar_demo/app/build/intermediates/pre-dexed/debug/com.github.shinelw.colorarcprogressbar-library-1.0.3_142ff48d4945c7cba3de25ac8ac269a3694aad32.jar" />
+        sha1="8c34a9906bbd456bce010c7ec28fe2d78b64dcd4">
+        <dex dex="/Users/liyang/work/GitHub/ColorArcProgressBar/app/build/intermediates/pre-dexed/debug/com.github.shinelw.colorarcprogressbar-library-1.0.3_5a1d63c733ab29176251f68231e91e8b39af1593.jar" />
     </item>
 
 </items>

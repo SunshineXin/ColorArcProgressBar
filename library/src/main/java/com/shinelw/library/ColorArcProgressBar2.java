@@ -44,6 +44,7 @@ public class ColorArcProgressBar2 extends View{
     private Paint curSpeedPaint;
 
     private RectF bgRect;
+    private RectF thumbRect;
 
     private ValueAnimator progressAnimator;
     private PaintFlagsDrawFilter mDrawFilter;
@@ -151,6 +152,12 @@ public class ColorArcProgressBar2 extends View{
         bgRect.left = longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE;
         bgRect.right = diameter + (longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE);
         bgRect.bottom = diameter + (longdegree + progressWidth/2 + DEGREE_PROGRESS_DISTANCE);
+        //原点矩形
+        thumbRect = new RectF();
+        thumbRect.top = bgRect.top - mThubBtn.getHeight();
+        thumbRect.left = bgRect.left - mThubBtn.getHeight();
+        thumbRect.right = bgRect.right + mThubBtn.getHeight();
+        thumbRect.bottom = bgRect.bottom + mThubBtn.getHeight();
 
         //圆心
         centerX = (2 * longdegree + progressWidth + diameter + 2 * DEGREE_PROGRESS_DISTANCE)/2;
@@ -179,7 +186,7 @@ public class ColorArcProgressBar2 extends View{
         progressPaint.setStyle(Paint.Style.STROKE);
         progressPaint.setStrokeCap(Paint.Cap.ROUND);
         progressPaint.setStrokeWidth(progressWidth);
-        progressPaint.setColor(Color.GREEN);
+        progressPaint.setColor(Color.RED);
 
         //内容显示文字
         vTextPaint = new Paint();
@@ -249,21 +256,12 @@ public class ColorArcProgressBar2 extends View{
             int num = (360 / degrees);
             int start = (int)startAngle * -1;// 270 ---> -135
             int end  = 360 - (int)startAngle;
+            canvas.save();
             /**动态画一个竖线*/
             // 从资源文件中生成位图
 //            if (((int) currentAngle + start) % degrees == 0) {
                 degrees_flag = (int) currentAngle + start;
 //            }
-            canvas.saveLayer(bgRect, degreePaint_2);
-            canvas.rotate(degrees_flag, centerX, centerY);
-            canvas.drawBitmap(mThubBtn, bgRect.left, bgRect.top, degreePaint);
-//            degreePaint.setStrokeWidth(dipToPx(1));
-//            degreePaint.setColor((longDegreeColor));
-//            canvas.drawLine(centerX, centerY - diameter / 2 - progressWidth / 2 - DEGREE_PROGRESS_DISTANCE,
-//                    centerX, centerY - diameter / 2 - progressWidth / 2 - DEGREE_PROGRESS_DISTANCE - longdegree, degreePaint);
-            /**动态画一个竖线*/
-
-            canvas.restore();
             //整个弧
             canvas.drawArc(bgRect, startAngle, sweepAngle, false, allArcPaint);
 
@@ -273,6 +271,21 @@ public class ColorArcProgressBar2 extends View{
 //            progressPaint.setShader(sweepGradient);
                 //当前进度
             canvas.drawArc(bgRect, startAngle, currentAngle, false, progressPaint);
+
+            canvas.restore();
+
+            canvas.saveLayer(thumbRect, degreePaint);
+            canvas.rotate((180 - startAngle), centerX, centerY);
+            Log.d("liyang", "degrees_flag :" + degrees_flag);
+            canvas.rotate(degrees_flag, centerX, centerY);
+            canvas.drawBitmap(mThubBtn, bgRect.left + mThubBtn.getWidth() / 4, bgRect.top + mThubBtn.getWidth() / 4, degreePaint);
+//            degreePaint.setStrokeWidth(dipToPx(1));
+//            degreePaint.setColor((longDegreeColor));
+//            canvas.drawLine(centerX, centerY - diameter / 2 - progressWidth / 2 - DEGREE_PROGRESS_DISTANCE,
+//                    centerX, centerY - diameter / 2 - progressWidth / 2 - DEGREE_PROGRESS_DISTANCE - longdegree, degreePaint);
+            /**动态画一个竖线*/
+
+            canvas.restore();
         }
 
 
